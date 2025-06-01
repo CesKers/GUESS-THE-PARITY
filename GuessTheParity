@@ -1,0 +1,33 @@
+GuessTheParity.java
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class GuessTheParity {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        int score = 0;
+
+        System.out.println("Welcome to Guess the Parity: Even Odds!");
+
+        // One round of the game
+        int number = random.nextInt(100) + 1; // Random number from 1 to 100
+        System.out.println("Is the number " + number + " even or odd?");
+        System.out.print("Type 'even' or 'odd': ");
+        String guess = scanner.nextLine().toLowerCase();
+
+        boolean isEven = number % 2 == 0;
+
+        if ((isEven && guess.equals("even")) || (!isEven && guess.equals("odd"))) {
+            System.out.println("Correct!");
+            score++;
+        } else {
+            System.out.println("Wrong! The correct answer was " + (isEven ? "even" : "odd") + ".");
+        }
+
+        System.out.println("Your score: " + score);
+        scanner.close();
+    }
+}
